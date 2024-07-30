@@ -1,3 +1,5 @@
+https://leetcode.com/problems/merge-sorted-array/submissions/1337841542/?envType=study-plan-v2&envId=top-interview-150
+
 # Time Complexity: O(m+n)
 # Space Complexity: O(1)
 class Solution(object):
@@ -18,7 +20,7 @@ class Solution(object):
                 j -=1
             else:
                 nums1[k]=nums1[i]
-                j -=1
+                i -=1
             k -=1
 
         while j>=0:
