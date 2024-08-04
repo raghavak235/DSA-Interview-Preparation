@@ -63,6 +63,21 @@ class LinkedList:
         return count
 
 
+    def deleteNode(self, position):
+        if self.head is None:
+            return
+        temp= self.head
+
+        for i in range(position - 1):
+            temp = temp.next_ptr
+            if temp is None:
+                break
+
+
+        temp.next_ptr = temp.next_ptr.next_ptr
+
+
+
     # Printing the values of LL
     def printLL(self):
         temp = self.head
@@ -82,3 +97,5 @@ print(result)
 ll.printLL()
 search = ll.searchNode(40)
 print(search)
+ll.deleteNode(2)
+ll.printLL()
