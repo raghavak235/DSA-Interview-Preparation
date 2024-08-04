@@ -1,5 +1,6 @@
-# ime Complexity:O(n)
+# Time Complexity:O(n)
 # Space Complexity: O(1)
+# https://leetcode.com/problems/reverse-linked-list/description/
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
