@@ -12,3 +12,4 @@ def count_char(string):
 
 
 count_char('abcdd')
+
