@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/k-closest-points-to-origin/
+from heapq import heappush, heappop
+
 
 class Solution(object):
     def getdistance(self, x, y):
