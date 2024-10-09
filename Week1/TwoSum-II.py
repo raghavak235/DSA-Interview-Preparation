@@ -1,4 +1,4 @@
-https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/?envType=study-plan-v2&envId=top-interview-150
+# https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/?envType=study-plan-v2&envId=top-interview-150
 
 #Time Complexity: O(n)
 #Space Complexity: O(1)
