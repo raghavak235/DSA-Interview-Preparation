@@ -10,7 +10,7 @@ class Solution(object):
 
         key1 = {}
         slist = s.split()
-        if len(slist) != len(patten):
+        if len(slist) != len(pattern):
             return False
         # print(slist)
         for i in range(len(pattern)):
