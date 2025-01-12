@@ -1,0 +1,33 @@
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        reversed_n = 0
+        for _ in range(32):
+            reversed_n  = reversed_n << 1
+            # n =1011
+        #     1011 & 1, if you want last bit, you need to use the & operation.
+        #     1011
+        #    &0001
+        #  ans:0001 it will store in bit
+            bit = n &1
+        #     0 | 1= 0
+        #     0 | 0 = 0
+        #     0 | bit = bit
+        # we are placing the last bit value in the reversed_n 
+        # If you use or operation between reversed_n and bit it will store the bit value in the 
+            reversed_n = reversed_n | bit 
+
+        #  Once we have successfully added the last bit to the reversed_n, we need to shift the bit to right by 1
+            n = n>>1
+
+        # We also need to shift the reversed_n to the left as we can add more values and we need to add it at the top.
+
+        return reversed_n
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        reversed_n=0
+        for _ in range(32):
+            reversed_n = (reversed_n<<1)| (n&1)
+            n  >>= 1
+        return reversed_n
+
+
