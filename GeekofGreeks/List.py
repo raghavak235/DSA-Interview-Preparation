@@ -32,3 +32,33 @@ def getSecMax(l):
 
 TC: O(n)
 SC: O(1)
+
+
+
+def verifysort(l):
+    sort = None
+    for i in range(len(l)-1):
+        if l[i] <= l[i+1]:
+            sort = True
+        else:
+            sort = False
+    return sort
+
+TC: O(n)
+SC: O(1)
+    
+    
+# print(verifysort(l=[50,10,1]))
+
+
+def verifysort_while(l):
+    i = 1
+    while i < len(l):
+        if l[i] < l[i-1]:
+            return False
+        i +=1
+        return True
+
+print(verifysort_while(l=[10,20,20,30]))            
+TC: O(n)
+SC: O(1)
