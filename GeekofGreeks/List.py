@@ -62,3 +62,21 @@ def verifysort_while(l):
 print(verifysort_while(l=[10,20,20,30]))            
 TC: O(n)
 SC: O(1)
+
+
+def leftrot(l, k):
+    k = k % len(l)  # Normalize k
+    return l[k:] + l[:k]
+
+# Example usage:
+print(leftrot(l=[10, 20, 30, 40], k=2))  # Output: [30, 40, 10, 20]
+
+
+def leftrot(l,k):
+    initialv=l[0]
+    for i in range(1,len(l)):
+        l[i-1] =l [i]
+        
+    l[-1] = initialv
+    
+    return l
