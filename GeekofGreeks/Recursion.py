@@ -269,3 +269,35 @@ Conclusion
 These conditions transform standard binary search into a specialized
 version that pinpoints the first occurrence, making it invaluable for
 sorted arrays with duplicate values.
+
+
+                                                      def firstOccurence(arr, n, x):
+    low=0 
+    high=n-1
+    while(low<=high):
+        mid=(low+high)//2
+        if(x>arr[mid]):
+            low=mid+1 
+        elif(x<arr[mid]):
+            high=mid-1 
+        else:
+# mid == 0: Catches cases where the first occurrence is at the start of the array.
+# arr[mid-1] != arr[mid]: Ensures that if we’ve found x, there’s no earlier duplicate by checking the previous element.
+# Else clause (high = mid - 1): If the condition fails, it means arr[mid-1] == arr[mid], so there’s a duplicate x earlier in the sorted array, and we need to search left.
+            if mid ==0 or arr[mid-1] != arr[mid]:
+                return mid
+            else:
+                high = mid -1
+                
+    
+    return -1
+        
+        
+        
+        
+    
+n=5
+arr=[5, 10, 10, 15, 15]
+x=10
+# print(firstOccurenceRecursive(arr, 0, n-1, x))
+print(firstOccurence(arr, n, x))
