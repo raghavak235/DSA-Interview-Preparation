@@ -118,10 +118,12 @@ def firstOccurancebinaryserach_recursive(arr, low,high, x):
         return firstOccurancebinaryserach_recursive(arr, mid+1, high, x)
     
     else: 
+        # The reason for the below condition is we try to see if mid =0  might have our value [10,10,10]
+        # And also we're trying to see if the before value is also same [2,10,10,20,20]
+        # if yes we iterate again with low and mid -1 to cover the before values
         if mid == 0 or arr[mid-1] != arr[mid]:
             return mid
-        else:
-            
+        else:            
             return firstOccurancebinaryserach_recursive(arr, low, mid-1, x)
             
 print(firstOccurancebinaryserach_recursive(arr, 0, len(arr)-1, x))            
@@ -197,4 +199,73 @@ Space Complexity: O(log n) due to recursive call stack
 
 Final Output: 1
 - Meaning: The first occurrence of 10 is at index 1 in the array [5, 10, 10, 15, 15]
+Understanding the First Occurrence Binary Search Conditions
+========================================================
 
+Key Points
+----------
+- The conditions `if mid == 0 or arr[mid-1] != arr[mid]` are crucial for identifying
+  the first occurrence of a target value in a sorted array
+- They handle duplicate values effectively
+- They ensure we return the leftmost position of the target
+
+Purpose of These Conditions
+---------------------------
+- Used in recursive binary search to find the first occurrence
+- Designed to work with sorted arrays that may contain duplicates
+- Prevents returning later occurrences when multiple matches exist
+
+Detailed Explanation of Conditions
+----------------------------------
+1. First Condition: `mid == 0`
+   - Checks if we're at the array's first element (index 0)
+   - If this element equals the target, it's automatically the first occurrence
+   - No previous elements to compare with
+
+2. Second Condition: `arr[mid-1] != arr[mid]`
+   - Checks if the element before current middle differs from current element
+   - If true (and arr[mid] equals target), current position is first occurrence
+   - Ensures no earlier duplicates exist
+
+Execution Flow
+--------------
+For each recursive call:
+1. If either condition is true:
+   - Current mid is the first occurrence
+   - Return mid as the result
+2. If both conditions are false:
+   - mid > 0 AND arr[mid-1] == arr[mid]
+   - Indicates earlier occurrences exist
+   - Recursively search left half (low to mid-1)
+
+Example Walkthrough
+-------------------
+Array: [5, 10, 10, 15, 15]
+Target: 10
+
+Case 1:
+- mid = 2, arr[2] = 10
+- Check conditions:
+  - mid == 0? False (2 != 0)
+  - arr[1] != arr[2]? False (10 == 10)
+- Result: Not first occurrence, search left
+
+Case 2:
+- mid = 1, arr[1] = 10
+- Check conditions:
+  - mid == 0? False (1 != 0)
+  - arr[0] != arr[1]? True (5 != 10)
+- Result: First occurrence found, return 1
+
+Why It's Effective
+------------------
+- Handles duplicates without linear search
+- Maintains O(log n) time complexity
+- Always finds leftmost occurrence
+- Surprisingly efficient despite multiple matches
+
+Conclusion
+----------
+These conditions transform standard binary search into a specialized
+version that pinpoints the first occurrence, making it invaluable for
+sorted arrays with duplicate values.
