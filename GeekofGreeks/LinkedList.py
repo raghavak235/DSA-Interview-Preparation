@@ -54,7 +54,18 @@ def main():
 if __name__ == "__main__":
     main()
 
-
+TC: O(n) as it need to traverse n nodes
+AC=SC=O(1)
+def searchNode(head, x):
+    curr = head
+    counter = 1
+    while curr != None:
+        if curr.key == x:
+            return counter
+        counter += 1
+        curr = curr.next
+    
+    return -1
 
 
 
