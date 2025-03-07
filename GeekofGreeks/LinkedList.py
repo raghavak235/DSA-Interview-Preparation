@@ -1,4 +1,61 @@
-LL introduction
+LL introduction:
+
+
+TC: O(n) as it need to traverse n nodes
+AC=SC=O(1)
+
+# Define a Node class for the linked list
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# Helper function to print the linked list in a visual (box) format
+def print_linked_list(head):
+    current = head
+    while current:
+        # Print the node in a box-like format
+        print(f"[ {current.data} ]", end="")
+        if current.next:
+            print(" -> ", end="")
+        current = current.next
+    print()  # Newline at the end
+
+def main():
+    # Step 1: Create the first node with data "A"
+    node1 = Node("A")
+    # Visual representation:
+    # +-----+
+    # |  A  | -> None
+    # +-----+
+    print("Step 1: Created Node1")
+    print_linked_list(node1)
+    
+    # Step 2: Create the second node with data "B" and link it to Node1
+    node2 = Node("B")
+    node1.next = node2
+    # Visual representation:
+    # +-----+      +-----+
+    # |  A  | ---> |  B  | -> None
+    # +-----+      +-----+
+    print("Step 2: Created Node2 and linked Node1 to Node2")
+    print_linked_list(node1)
+    
+    # Step 3: Create the third node with data "C" and link it to Node2
+    node3 = Node("C")
+    node2.next = node3
+    # Visual representation:
+    # +-----+      +-----+      +-----+
+    # |  A  | ---> |  B  | ---> |  C  | -> None
+    # +-----+      +-----+      +-----+
+    print("Step 3: Created Node3 and linked Node2 to Node3")
+    print_linked_list(node1)
+
+if __name__ == "__main__":
+    main()
+
+
+
 
 
 
