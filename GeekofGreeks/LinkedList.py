@@ -17,3 +17,12 @@ Comparision of different Operations:
 | **Memory Overhead**       | Low – Only stores the elements.                                                                                    | Higher – Stores additional pointers for each node.                                                         | Arrays are compact in memory; linked lists require extra space for storing pointers along with the data.                                                                              |
 | **Cache Locality**        | High – Data is stored contiguously, leading to better cache performance.                                           | Low – Nodes can be scattered in memory.                                                                    | Contiguous memory in arrays improves cache performance, while linked lists may lead to cache misses due to non-sequential memory allocation.                                           |
 | **Insertion/Deletion given direct pointer** | Not applicable – Direct pointer manipulation isn’t used in arrays.                                                      | O(1) – If you already have the pointer to the node (and its predecessor, if needed).                        | In linked lists, if you already know the location, you can adjust pointers quickly without additional traversal.                                                                      |
+
+
+
+
+Cache Locality:  
+
+Arrays are stored in contiguous blocks of memory. This means that once you load one element, nearby elements are likely already loaded into the processor's cache due to a phenomenon called spatial locality. When a processor fetches data, it doesn't just fetch one byte or one element; it fetches a block of adjacent memory. As a result, when you access elements in an array sequentially, you're likely to hit the cache, which makes data retrieval much faster.
+
+On the other hand, linked lists are made up of nodes that are typically allocated separately in memory. Because these nodes may be scattered around, accessing one node doesn't guarantee that the next node is already in the cache. This lack of cache locality means that the processor may need to fetch data from slower main memory more often, leading to potential cache misses and, consequently, slower performance.
