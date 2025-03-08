@@ -67,6 +67,18 @@ def searchNode(head, x):
     
     return -1
 
+TC: O(n) as it need to traverse n nodes
+AC=SC=O(1)
+def insertEnd(head, key):
+    if head == None:
+        return Node(key)
+
+    current = head
+    while current.next != None:
+        current = current.next
+    current.next = Node(key)
+    return head
+
 # Explanation of insertBegining Function in a Linked List
 
 ## Overview
