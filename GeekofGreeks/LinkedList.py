@@ -201,6 +201,9 @@ def insert_position(head, key, pos):
     current.next = tmp
     return head
 
+TC: O(min(pos,n))
+AS: O(1)
+
          +--------------------------------------------------+
          |            Start: insert_position              |
          +--------------------------------------------------+
