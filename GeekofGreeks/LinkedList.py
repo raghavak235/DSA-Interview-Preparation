@@ -270,3 +270,20 @@ Cache Locality:
 Arrays are stored in contiguous blocks of memory. This means that once you load one element, nearby elements are likely already loaded into the processor's cache due to a phenomenon called spatial locality. When a processor fetches data, it doesn't just fetch one byte or one element; it fetches a block of adjacent memory. As a result, when you access elements in an array sequentially, you're likely to hit the cache, which makes data retrieval much faster.
 
 On the other hand, linked lists are made up of nodes that are typically allocated separately in memory. Because these nodes may be scattered around, accessing one node doesn't guarantee that the next node is already in the cache. This lack of cache locality means that the processor may need to fetch data from slower main memory more often, leading to potential cache misses and, consequently, slower performance.
+
+
+
+def delete_first_node(head):
+    if head == None:
+        return None
+    return head.next
+Tc:O(1)
+SC:O(1)
+Initial List
+head -> [A] -> [B] -> [C] -> None
+Execution Flow
+head != None, so we skip the if condition.
+return head.next, which is [B].
+After Deletion
+new head -> [B] -> [C] -> None
+✅ Correct Output: The list now starts from [B].
