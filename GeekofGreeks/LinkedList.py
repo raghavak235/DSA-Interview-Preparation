@@ -67,6 +67,105 @@ def searchNode(head, x):
     
     return -1
 
+# Explanation of insertBegining Function in a Linked List
+
+## Overview
+
+The given Python code implements a function to insert a new node at the beginning of a linked list. We will explain each step in detail with visual representations.
+
+---
+
+## Code
+
+```python
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.next = None
+
+def insertBegining(head, key):
+    tmp = Node(key)  # Step 1: Create a new node
+    tmp.next = head  # Step 2: Point new node's next to the current head
+    return tmp       # Step 3: Return new head
+
+if __name__ == "__main__":
+    head = None
+    head = insertBegining(head, key=1)  # Insert first node
+    head = insertBegining(head, key=2)  # Insert second node
+```
+
+---
+
+## Step-by-Step Execution
+
+### Step 1: Creating a Node Class
+
+We define a `Node` class with:
+
+- A `key` attribute to store the data.
+- A `next` pointer to link to the next node.
+
+### Step 2: Implementing `insertBegining` Function
+
+This function inserts a new node at the beginning of the linked list:
+
+1. Create a new node with the given key.
+2. Point the new node’s `next` to the current head.
+3. Return the new node as the new head.
+
+### Step 3: Inserting Nodes
+
+#### Initial State (Empty List)
+
+```
+head = None
+```
+
+```
+(None)
+```
+
+#### Insert 1
+
+```python
+head = insertBegining(head, key=1)
+```
+
+New list:
+
+```
+[1] -> None
+```
+
+#### Insert 2
+
+```python
+head = insertBegining(head, key=2)
+```
+
+New list:
+
+```
+[2] -> [1] -> None
+```
+
+---
+
+## Final Representation
+
+The linked list now looks like:
+
+```
+head -> [2] -> [1] -> None
+```
+
+This method efficiently inserts elements at the beginning of the linked list.
+
+## Notes
+
+- **Time Complexity**: O(1), as insertion at the head is constant time.
+- **Space Complexity**: O(1), as we only create one new node per call.
+
 
 
 
