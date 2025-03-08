@@ -179,6 +179,68 @@ This method efficiently inserts elements at the beginning of the linked list.
 - **Space Complexity**: O(1), as we only create one new node per call.
 
 
+# Visual Explanation of `insert_position`
+
+This document provides a step-by-step, visual explanation of the following function:
+
+```python
+def insert_position(head, key, pos):
+    tmp = Node(key)
+    current = head
+    if pos == 1:
+        tmp.next = head
+        return tmp
+
+    for i in range(pos-2):
+        current = current.next
+        # If during traversal, current becomes None (end of list reached before expected), the function returns the original list (insertion is invalid).
+        if current == None:
+            return head
+
+    tmp.next = current.next
+    current.next = tmp
+    return head
+
+         +--------------------------------------------------+
+         |            Start: insert_position              |
+         +--------------------------------------------------+
+                             │
+                             ▼
+                 +-------------------------+
+                 | Create new node: tmp =  |
+                 |       Node(key)         |
+                 +-------------------------+
+                             │
+                             ▼
+                +--------------------------+
+                | Set current = head       |
+                +--------------------------+
+                             │
+                             ▼
+              +-------------------------------+
+              | Is pos equal to 1?            |
+              +-------------------------------+
+               /              \
+              / Yes            \ No
+             ▼                  ▼
++---------------------+   +-----------------------------+
+| tmp.next = head     |   | Execute for loop:           |
+| Return tmp          |   | for i in range(pos-2):      |
++---------------------+   |   current = current.next    |
+                          |   if current is None:       |
+                          |       return head           |
+                          +-----------------------------+
+                                        │
+                                        ▼
+                          +-----------------------------+
+                          | Set tmp.next = current.next |
+                          | Update current.next = tmp   |
+                          +-----------------------------+
+                                        │
+                                        ▼
+                             +----------------------+
+                             | Return head          |
+                             +----------------------+
 
 
 Comparision of different Operations:
