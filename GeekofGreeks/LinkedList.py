@@ -287,3 +287,29 @@ return head.next, which is [B].
 After Deletion
 new head -> [B] -> [C] -> None
 ✅ Correct Output: The list now starts from [B].
+
+    # **Deep Explanation of `delete_last` Function**
+
+## **Function Definition**
+```python
+def delete_last(head):
+Why? If the list is empty (head == None), there’s nothing to delete.
+Effect? Return None (no changes).
+
+    if head == None:
+        return None
+        Why? If the list has only one node (head.next == None), deleting it makes the list empty.
+Effect? Return None.
+    if head.next == None:
+        return None
+    Goal: Move current so that it stops at the second last node (node before the last).
+Condition: current.next.next != None
+Ensures that current stops at the second last node.
+Effect: current reaches the node just before the last node.
+Example Traversal
+    current = head
+    while current.next.next != None:
+        current = current.next
+    current.next = None
+    return head
+
