@@ -313,3 +313,39 @@ Example Traversal
     current.next = None
     return head
 
+def sorted_insert_ll(head, key):
+    temp = Node(key)
+    if head == None:
+        return temp
+    elif key < head.data:
+        temp.next = head
+        return temp
+    else:
+        current = head
+        current.next.data < key
+Moves current forward as long as the key is greater than current.next.data.
+This helps find the correct position where key should be inserted.
+    
+        while current.next != None and current.next.data < key:
+            current = current.next
+        temp.next = current.next
+        current.next = temp
+        return head
+
+TC: O(n)
+AS: O(1)
+
+def middle_single_ll(head):
+     # slow fast  approach
+    if head == None:
+        return
+    slow, fast = head, headWhen you plan to move fast two nodes ahead (i.e., fast = fast.next.next), you must be sure that fast.next is not None. If fast.next were None, then trying to access fast.next.next would result in an error.
+    while fast != None and fast.next != None:
+        slow = slow.next
+        fast = fast.next.next
+    print(slow.data)
+
+TC: O(1)
+SC:O(1)
+
+
