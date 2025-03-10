@@ -345,6 +345,10 @@ def middle_single_ll(head):
         fast = fast.next.next
     print(slow.data)
 
+
+TC: O(1)
+AS: O(1)
+
 def nth_node_from_end(head, n):
 #     Two pointers
     if head == None:
@@ -363,8 +367,21 @@ def nth_node_from_end(head, n):
     print(second.data)
 
 
-
 TC: O(1)
-SC:O(1)
+AS: O(1)
 
+
+
+def remove_duplicates_ll(head):
+    current = head
+    while current != None and current.next!= None:
+        if current.data == current.next.data:
+            current.next = current.next.next
+        else:
+            current = current.next
+
+        return head
+
+TC: O(n)
+AS: O(1)
 
