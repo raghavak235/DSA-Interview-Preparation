@@ -345,6 +345,25 @@ def middle_single_ll(head):
         fast = fast.next.next
     print(slow.data)
 
+def nth_node_from_end(head, n):
+#     Two pointers
+    if head == None:
+          return
+    first = head
+# If n is larger than the number of nodes in the list, first will eventually become None. Trying to do first.next when first == None would cause an error.
+    for i in range(n):
+        if first ==None:
+            return
+        first = first.next
+
+    second = head
+    while first != None:
+        first = first.next
+        second = second.next
+    print(second.data)
+
+
+
 TC: O(1)
 SC:O(1)
 
