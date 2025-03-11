@@ -385,3 +385,17 @@ def remove_duplicates_ll(head):
 TC: O(n)
 AS: O(1)
 
+def reverse_ll(head):
+    current = head
+    prev=None
+while current is not None:
+    next = current.next   # Save the next node
+    current.next = prev   # Reverse the link
+    prev = current        # Move prev to current node
+    current = next        # Move to the next node
+
+TC: O(n)
+AS: O(1)
+
+
+
