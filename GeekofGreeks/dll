@@ -24,7 +24,21 @@ def insert_at_beg(head, key):
     # Return the new node as the new head of the list.
     return new_node
 
+Ts : O(n)
+AS: O(1)
+There is also an optimized approach where you need to keep tail reference where TC will be O(1)
 
+def insert_last(head,key):
+    newnode = Node(key)
+    if head == None:
+        return newnode
+    current = head
+    while current.next != None:
+        current =current.next
+
+    current.next = newnode
+    newnode.prev = current
+    return head
 
 
 def print_dll(head):
