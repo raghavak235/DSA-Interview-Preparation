@@ -1,0 +1,34 @@
+
+
+class Node:
+    def __init__(self, k):
+        self.key = k
+        self.prev = None
+        self.next = None
+
+
+
+TC, AS:  O(1)
+def insert_at_beg(head, key):
+    # Create a new node with the given key.
+    new_node = Node(k=key)
+    
+    # If the list is empty, return the new node as the head.
+    if head is None:
+        return new_node
+    
+    # Otherwise, link the new node before the current head.
+    new_node.next = head   # New node's next pointer is set to the current head.
+    head.prev = new_node   # Current head's prev pointer is set to the new node.
+    
+    # Return the new node as the new head of the list.
+    return new_node
+
+
+
+
+def print_dll(head):
+    current =head
+    while current !=  None:
+        print(current.key, end=' ')
+        current = current.next
