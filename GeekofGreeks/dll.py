@@ -39,6 +39,45 @@ def insert_last(head,key):
     current.next = newnode
     newnode.prev = current
     return head
+def delete_head(head):
+    if head == None:
+        return None
+    if head.next == None:
+        return None
+
+    head = head.next
+    head.prev = None
+    return None
+
+
+def delete_last_node(head):
+    if head == None:
+        return None
+    if head.next == None:
+        return None
+
+    current = head
+    while current.next.next !=None:
+        current = current.next
+
+    current.next = None
+
+    return head
+
+def reverse_dll(head):
+        if head == None:
+            return None
+        if head.next == None:
+            return head
+        current = head
+        prev =None
+        while current != None:
+            prev = current
+            current.next, current.prev = current.prev, current.next
+            # Since current.prev now points to B (original next), this effectively moves current forward in the original list
+            current = current.prev
+        return prev
+
 
 
 def print_dll(head):
